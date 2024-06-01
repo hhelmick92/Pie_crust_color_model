@@ -35,11 +35,11 @@ def get_files(path_in):
         
     return [files, names]
 
-t15_back = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t15\backs')
-t15_pie = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t15\pies')
+t15_back = get_files(r'PATH\TO\BACKGROUNDS')
+t15_pie = get_files(r'PATH\TO\CROPPED_IMAGES')
 
-t30_back = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t30\backs')
-t30_pie = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t30\pies')
+t30_back = get_files(r'PATH\TO\BACKGROUNDS')
+t30_pie = get_files(r'PATH\TO\CROPPED_IMAGES')
 
 all_back = t15_back[0] + t30_back[0]
 all_pie = t15_pie[0] + t30_pie[0]
@@ -149,7 +149,7 @@ pie['pea_weight_time_ph'] = pie['merge_col']
 pie['glare'] = glare[0]
 pie['spec'] = s_sum[0]
 
-color = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\tables\hunter_data.csv')
+color = pd.read_csv(r'PATH\TO\THIS\FILE\hunter_data.csv')
 
 pea = []
 gly = []
@@ -173,7 +173,7 @@ color['pea_weight_time_ph'] = color['pea'] + '_' + color['weight'] + '_' + color
 
 color = color.sort_values(by = 'ID')
 
-gloss = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\Characterization\gloss.csv')
+gloss = pd.read_csv(r'PATH\TO\THIS\FILE\gloss.csv')
 gloss = gloss.drop(['Unnamed: 13', 'Unnamed: 14'], axis = 1)
 gloss = gloss[0:16]
 gloss = gloss.drop(['Unnamed: 28', 'Unnamed: 39'], axis = 1)
@@ -246,18 +246,6 @@ for i in merge['merge'].to_list():
 merge['pea'] = pea
 merge['weight'] = weight
 merge['time'] = time
-
-
-'''
-merge.columns
-Index(['pea_weight_time_ph', 'L*', 'a*', 'b*', 'bake_time', 'ph_x', 'value',
-       'L*_std', 'a*_std', 'b*_std', 'bake_time_std', 'ph_x_std', 'value_std',
-       'merge', 'Ls_mean', 'Ls_max', 'Ls_min', 'Ls_std', 'As_mean', 'As_max',
-       'As_min', 'As_std', 'Bs_mean', 'Bs_max', 'Bs_min', 'Bs_std', 'Bog_mean',
-       'Gog_mean', 'Rog_mean', 'mean_slope_h', 'mean_slope_v', 'above_h',
-       'mean_above_v', 'pea', 'ph', 'time', 'weight', 'merge_col'],
-      dtype='object')
-'''
 
 pea = []
 weight = []
