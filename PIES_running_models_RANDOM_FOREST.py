@@ -24,30 +24,30 @@ from PIES_functions import get_lab
 
 # [READ IN THE MODESLS THAT WERE SELECTED IN GRID SEARCHING]
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\all_out_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\all_scaler.pkl'
 with open(name, 'rb') as file:
     all_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\light_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\light_scaler.pkl'
 with open(name, 'rb') as file:
     light_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\dark_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\dark_scaler.pkl'
 with open(name, 'rb') as file:
     dark_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\all_out.pkl'
+name = r'PATH\TO\THIS\FILE\ann_all_data.pkl'
 with open(name, 'rb') as file:
     all_ann = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\light_out.pkl'
+name = r'PATH\TO\THIS\FILE\ann_light_data.pkl'
 with open(name, 'rb') as file:
     light_ann = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\dark_out.pkl'
+name = r'PATH\TO\THIS\FILE\ann_dark_data.pkl'
 with open(name, 'rb') as file:
     dark_ann = pickle.load(file)
-        
+
 # In[]
 
 def get_files(path_in):
@@ -62,11 +62,11 @@ def get_files(path_in):
         
     return [files, names]
 
-t15_back = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t15\backs')
-t15_pie = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t15\pies')
+t15_back = get_files(r'PATH\TO\BACKGROUNDS')
+t15_pie = get_files(r'PATH\TO\CROPPED_IMAGES')
 
-t30_back = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t30\backs')
-t30_pie = get_files(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\t30\pies')
+t30_back = get_files(r'PATH\TO\BACKGROUNDS')
+t30_pie = get_files(r'PATH\TO\CROPPED_IMAGES')
 
 all_back = t15_back[0] + t30_back[0]
 all_pie = t15_pie[0] + t30_pie[0]
@@ -103,7 +103,7 @@ background processing time s/img
 1.7902176521326367
 '''
 
-with open(r'L:\Kokini Lab\Kara Benbow\project_main_v2\crops\back_data_list.txt', 'w') as f:
+with open(r'PATH\TO\THIS\FILE\back_data_list.txt', 'w') as f:
     f.write(str(all_back_weights))
 
 # In[]
@@ -221,19 +221,6 @@ dark.index = all_pie_names
 all_df.index = all_pie_names
 weighted2.index = all_pie_names
 
-'''
-weighted.index = t15_pie[1]
-light.index = t15_pie[1]
-dark.index = t15_pie[1]
-all_df.index = t15_pie[1]
-'''
-'''
-weighted.index = t30_pie[1]
-light.index = t30_pie[1]
-dark.index = t30_pie[1]
-all_df.index = t30_pie[1]
-'''
-
 weighted = light
 
 pea = []
@@ -256,7 +243,7 @@ res2g = weighted.groupby('pea_weight_time')
 res2m = res2g.mean()
 res2m['merge'] = res2m.index
 
-color = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\tables\hunter_data.csv')
+color = pd.read_csv(r'PATH\TO\THIS\FILE\hunter_data.csv')
 
 pea = []
 gly = []
@@ -280,7 +267,7 @@ color = color.sort_values(by = 'ID')
 color['pea_weight_time'].unique()
 
 
-gloss = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\Characterization\gloss.csv')
+gloss = pd.read_csv(r'PATH\TO\THIS\FILE\gloss.csv')
 gloss = gloss.drop(['Unnamed: 13', 'Unnamed: 14'], axis = 1)
 gloss = gloss[0:16]
 gloss = gloss.drop(['Unnamed: 28', 'Unnamed: 39'], axis = 1)
@@ -355,9 +342,6 @@ merge['pea'] = pea
 merge['weight'] = weight
 merge['time'] = time
 
-#merge.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\used_process_outputs\weighted2_pie_results.csv')
-#merge.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\used_process_outputs\all_df_pie_results.csv')
-
 # In[]
 
 model = 'insert_model_name'
@@ -372,8 +356,6 @@ sns.lmplot(data = merge, x = 'b*', y = 'B_pred', hue = 'time')
 plt.title(model)
 
 # In[]
-
-#merge = merge.loc[merge['B_pred'] > 15]
 
 plt.style.use('seaborn')
 
@@ -401,8 +383,8 @@ ax[1,0].legend()
 
 # In[]
 
-weighted2.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\used_process_outputs\weighted2.csv')
-all_df.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main_v2\used_process_outputs\all_df.csv')
+weighted2.to_csv(r'PATH\TO\THIS\FILE\weighted2.csv')
+all_df.to_csv(r'PATH\TO\THIS\FILE\all_df.csv')
 
 
 
