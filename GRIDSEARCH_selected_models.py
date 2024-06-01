@@ -37,8 +37,8 @@ def scale_data (df):
 
 # In[]
 
-all_train = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\data2\train_data.csv')
-all_val = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\data2\val.csv')
+all_train = pd.read_csv(r'PATH\TO\THIS\FILE\train_data.csv')
+all_val = pd.read_csv(r'PATH\TO\THIS\FILE\val.csv')
 
 light_train = all_train.loc[all_train['lighting'] == 'high']
 dark_train = all_train.loc[all_train['lighting'] == 'low']
@@ -85,16 +85,6 @@ r_L = y_test2['L*'].corr(preds['L_pred'])
 r_A = y_test2['a*'].corr(preds['A_pred'])
 r_B = y_test2['b*'].corr(preds['B_pred'])
 
-'''
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_all_data.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(regr, file)
-
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\all_scaler.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(fit, file)
-'''
-
 # In[]
 
 L_lin = linregress(preds['L_pred'], y_test['L*'])
@@ -131,8 +121,6 @@ ax[1,1].plot(train_melt['value'], all_lin.slope * train_melt['value'] + all_lin.
 ax[1,1].set_title('All values')
 ax[1,1].set_xlabel('Predicted Values')
 ax[1,1].legend()
-
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\all_data.png', dpi = 400)
 
 # In[]
 
@@ -173,16 +161,6 @@ r_L = y_test2['L*'].corr(preds['L_pred'])
 r_A = y_test2['a*'].corr(preds['A_pred'])
 r_B = y_test2['b*'].corr(preds['B_pred'])
 
-'''
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_light_data.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(regr, file)
-
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\light_scaler.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(fit, file)
-'''
-
 L_lin = linregress(preds['L_pred'], y_test['L*'])
 A_lin = linregress(preds['A_pred'], y_test['a*'])
 B_lin = linregress(preds['B_pred'], y_test['b*'])
@@ -217,9 +195,6 @@ ax[1,1].plot(train_melt['value'], all_lin.slope * train_melt['value'] + all_lin.
 ax[1,1].set_title('All values')
 ax[1,1].set_xlabel('Predicted Values')
 ax[1,1].legend()
-
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\light_data.png', dpi = 400)
-
 # In[]
 
 df = dark_train
@@ -259,15 +234,6 @@ r_L = y_test2['L*'].corr(preds['L_pred'])
 r_A = y_test2['a*'].corr(preds['A_pred'])
 r_B = y_test2['b*'].corr(preds['B_pred'])
 
-'''
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_dark_data.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(regr, file)
-
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\dark_scaler.pkl'
-with open(name, 'wb') as file:
-    pickle.dump(fit, file)
-'''
 L_lin = linregress(preds['L_pred'], y_test['L*'])
 A_lin = linregress(preds['A_pred'], y_test['a*'])
 B_lin = linregress(preds['B_pred'], y_test['b*'])
@@ -302,10 +268,6 @@ ax[1,1].plot(train_melt['value'], all_lin.slope * train_melt['value'] + all_lin.
 ax[1,1].set_title('All values')
 ax[1,1].set_xlabel('Predicted Values')
 ax[1,1].legend()
-
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\dark_data.png', dpi = 400)
-
-
 
 
 
