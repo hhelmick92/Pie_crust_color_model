@@ -265,7 +265,7 @@ def scale_data (df):
     x_scaled = scaler.transform(df)
     return x_scaled
 
-standard = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\code\detector\background_features.csv')
+standard = pd.read_csv(r'PATH\TO\THIS\FILE\background_features.csv')
 
 df = standard.reset_index()
 df2 = df[['ls_mean', 'as_mean', 'bs_mean', 'bog', 'rog', 'gog',
