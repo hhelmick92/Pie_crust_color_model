@@ -28,33 +28,33 @@ from scipy.stats import linregress
 
 # In[]
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\all_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\all_scaler.pkl'
 with open(name, 'rb') as file:
     all_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\light_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\light_scaler.pkl'
 with open(name, 'rb') as file:
     light_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\dark_scaler.pkl'
+name = r'PATH\TO\THIS\FILE\dark_scaler.pkl'
 with open(name, 'rb') as file:
     dark_scaler = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_all_data.pkl'
+name = r'PATH\TO\THIS\FILE\ann_all_data.pkl'
 with open(name, 'rb') as file:
     all_ann = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_light_data.pkl'
+name = r'PATH\TO\THIS\FILE\ann_light_data.pkl'
 with open(name, 'rb') as file:
     light_ann = pickle.load(file)
 
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code2\selected_models\ann_dark_data.pkl'
+name = r'PATH\TO\THIS\FILE\ann_dark_data.pkl'
 with open(name, 'rb') as file:
     dark_ann = pickle.load(file)
 
 # In[RUN THE MODEL ON THE LIGHT ONLY VALIDATION DATA, BEHR COLOR SWATHS]
 
-light_val = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\light_validation.csv')
+light_val = pd.read_csv(r'PATH\TO\THIS\FILE\light_validation.csv')
 light_val['abs_slope_h'] = light_val['random_slope_h'].abs()
 light_val_in = light_val[['Ls_mean', 'As_mean', 'Bs_mean', 'abs_slope_h', 'count_above_std1_h']]
 
@@ -111,7 +111,7 @@ print(b_rmse)
 
 # In[RUN THE DATA ON THE DARK VALIDATION BEHR COLORS]
 
-dark_val = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\dark_validation.csv')
+dark_val = pd.read_csv(r'PATH\TO\THIS\FILE\dark_validation.csv')
 dark_val['abs_slope_h'] = dark_val['random_slope_h'].abs()
 dark_val['abs_slope_v'] = dark_val['random_slope1_v'].abs()
 
@@ -225,11 +225,11 @@ print(b_rmse)
 
 # In[RUN IT ON THE INTERMEIDATE WEIGTING]
 
-med1 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\mediate1_validation.csv')
+med1 = pd.read_csv(r'PATH\TO\THIS\FILE\\mediate1_validation.csv')
 med1['abs_slope_h'] = med1['random_slope_h'].abs()
 med1['abs_slope_v'] = med1['random_slope1_v'].abs()
 
-weights = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\mediate1_background_weights.csv')
+weights = pd.read_csv(r'PATH\TO\THIS\FILE\\mediate1_background_weights.csv')
 weights = weights.drop(['Unnamed: 0'], axis = 1)
 
 light_weight = weights['light_weight1']
@@ -308,21 +308,6 @@ l_rmse_all = mean_squared_error(weighted_pred['L*'], weighted_pred['L_pred_all']
 a_rmse_all = mean_squared_error(weighted_pred['a*'], weighted_pred['A_pred_all'], squared = False)
 b_rmse_all = mean_squared_error(weighted_pred['b*'], weighted_pred['B_pred_all'], squared = False)
 
-         
-''' 
-plt.figure(1)
-line = linregress(weighted_pred['a*'],weighted_pred['A_pred'])
-sns.scatterplot(data = weighted_pred, x = 'a*', y = 'A_pred')
-sns.lineplot(x = weighted_pred['a*'], y = weighted_pred['a*'] * line.slope + line.intercept, label = 'r2: ' + str(round(line.rvalue **2, 3)) + '\n ' + str(round(l_rmse, 3)))
-plt.legend(bbox_to_anchor = (1,1))
-
-plt.figure(2)
-line = linregress(weighted_pred['b*'],weighted_pred['B_pred'])
-sns.scatterplot(data = weighted_pred, x = 'b*', y = 'B_pred')
-sns.lineplot(x = weighted_pred['b*'], y = weighted_pred['b*'] * line.slope + line.intercept, label = 'r2: ' + str(round(line.rvalue **2, 3)) + '\n ' + str(round(l_rmse, 3)))
-plt.legend(bbox_to_anchor = (1,1))
-'''
-
 print('VALIDATION RMSE VALUES- WEIGHTED AVERAGE MODEL')
 print(l_rmse)
 print(a_rmse)
@@ -355,7 +340,7 @@ plt.ylabel('Predicted L Value')
 
 plt.legend()
 
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\validation_l.png', dpi = 400, bbox_inches = 'tight')
+plt.savefig(r'PATH\TO\THIS\FILE\validation_l.png', dpi = 400, bbox_inches = 'tight')
 
 # In[]
 
@@ -379,7 +364,7 @@ plt.ylabel('Predicted A Value')
 
 plt.legend()
 
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\validation_a.png', dpi = 400, bbox_inches = 'tight')
+plt.savefig(r'PATH\TO\THIS\FILE\validation_a.png', dpi = 400, bbox_inches = 'tight')
 
 
 # In[]
@@ -402,7 +387,7 @@ plt.ylabel('Predicted A Value')
 
 plt.legend()
 
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\validation_b.png', dpi = 400, bbox_inches = 'tight')
+plt.savefig(r'PATH\TO\THIS\FILE\validation_b.png', dpi = 400, bbox_inches = 'tight')
 
 
 # In[]
