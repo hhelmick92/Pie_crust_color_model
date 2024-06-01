@@ -6,5 +6,7 @@ The code files here were used to do the following:
 3) Crop pictures of pie crusts using Canny Edge detection
 4) Determine the L*, a*, b* values of these images at different lighting conditions.
 
+The .pkl files are the models that were trained on the data, and these could be used for transfer machine learning in future efforts. 
+
 A full description of how this works can be found in our publication:
 ADD URL ONCE IT IS PUBLISHED
