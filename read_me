@@ -14,4 +14,5 @@ Detector - functions and code that are used to get the lighting conditions of yo
 Grid Search - the gridsearching that was done for the ANN and RF models made in the paper
 Pickles - The saved models and scalers that were trained in this work
 Pies - Functions used to process images of the pie crust and run the model on the crust
+sample_data - some of the data that was collected. It is impractical to include all pictures taken, but there should be enough to get started with the code
 Wrangling - data wrangling code and functions used in this work 
