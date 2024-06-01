@@ -24,7 +24,7 @@ import seaborn as sns
 
 cols = ['ls_mean', 'as_mean', 'bs_mean', 'bog', 'rog', 'gog', 'left_slope_h', 'right_slope_h', 'left_slope_v', 'right_slope_v']
 
-light_path = r'L:\Kokini Lab\Kara Benbow\project_main\original_datasets\high_light\background\cropped'
+light_path = r'PATH\TO\LIGHT\IMAGES'
 
 light_files = glob.glob(light_path + '\*.png')
 
@@ -38,7 +38,7 @@ light_df = pd.DataFrame(light_f)
 light_df.columns = cols
 light_df['lighting'] = 'light'
 
-dark_path = r'L:\Kokini Lab\Kara Benbow\project_main\original_datasets\low_light\background\cropped'
+dark_path = r'PATH\TO\DARK\IMAGES'
 
 dark_files = glob.glob(dark_path + '\*.png')
 
@@ -58,7 +58,7 @@ df = pd.concat([light_df, dark_df])
 #df.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\code\detector\background_features.csv')
 
 # In[]
-df = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\code\detector\background_features.csv')
+df = pd.read_csv(r'PATH\TO\THIS\FILE\background_features.csv')
 
 df = df.reset_index()
 df2 = df[['ls_mean', 'as_mean', 'bs_mean', 'bog', 'rog', 'gog',
@@ -89,7 +89,7 @@ plt.legend(bbox_to_anchor=(1,1))
 
 '''
 import pickle
-name = r'L:\Kokini Lab\Kara Benbow\project_main\code\selected_models\pca_detector.pkl'
+name = r'PATH\TO\THIS\FILE\pca_detector.pkl'
 with open(name, 'wb') as file:
     pickle.dump(pca, file)
 '''
@@ -149,7 +149,7 @@ def weighting(path_in, graph = False, light_coord = light_coord, dark_coord = da
 
 # In[]
 
-mediate_back = r'L:\Kokini Lab\Kara Benbow\project_main\original_datasets\intermediate\mediate1\background'
+mediate_back = r'PATH\TO\MEDIATE\IMAGES'
 
 mediate_files = glob.glob(mediate_back +'\*.png')
 
@@ -163,7 +163,4 @@ med1.columns = ['light_weight1', 'dark_weight1', 'light_weight2', 'dark_weight2'
 
 mean = med1.mean()
 
-plt.savefig(r'L:\Kokini Lab\Kara Benbow\project_main_v2\figures\pca_corrected_point.png', dpi = 400, bbox_inches = 'tight')
-
-#med1.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\mediate1_background_weights.csv')
 
