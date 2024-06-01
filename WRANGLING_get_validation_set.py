@@ -8,11 +8,11 @@ Created on Thu Feb 23 12:54:25 2023
 import pandas as pd
 # In[]
 
-df1 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\ppg_highlight_averages.csv')
-df2 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\sw_highlight_averages.csv')
+df1 = pd.read_csv(r'PATH\TO\THIS\FILE\ppg_highlight_averages.csv')
+df2 = pd.read_csv(r'PATH\TO\THIS\FILE\sw_highlight_averages.csv')
 
-df3 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\ppg_lowlight_averages.csv')
-df4 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\process_outputs\sw_lowlight_averages.csv')
+df3 = pd.read_csv(r'PATH\TO\THIS\FILE\ppg_lowlight_averages.csv')
+df4 = pd.read_csv(r'PATH\TO\THIS\FILE\sw_lowlight_averages.csv')
 
 df = pd.concat([df1, df2, df3, df4])
 
