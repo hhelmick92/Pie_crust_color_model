@@ -1,1 +1,10 @@
-This is the read me
+The code files contained within this repository were used as part of a publication under review in the Journal of Food Science. 
+
+The code files here were used to do the following:
+1) Convert images of paper from RGB to L*, a*, b* and compare to values from a colorimeter
+2) Train and validate machine learning models (ANN, RF) to predict the L*, a*, b* values from images
+3) Crop pictures of pie crusts using Canny Edge detection
+4) Determine the L*, a*, b* values of these images at different lighting conditions.
+
+A full description of how this works can be found in our publication:
+ADD URL ONCE IT IS PUBLISHED
