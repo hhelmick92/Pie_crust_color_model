@@ -20,8 +20,8 @@ from WRANGLING_functions import get_lab
 ###################################################
 brand = 'ppg'
 lighting = 'light'
-path_in = r'L:\Kokini Lab\Kara Benbow\project_main\original_datasets\high_light\ppg_cropped'
-path_out = r'L:\Kokini Lab\Kara Benbow\project_main_v2\required_code'
+path_in = r'PATH\TO\TCROPPED\IMAGES'
+path_out = r'PATH\TO\SAVING'
 file_name = 'ppg_light_averages'
 ###################################################
 ###################################################
@@ -102,7 +102,7 @@ df['merger'] = df['name'] + df['tile'].str.replace('tile','')
 # In[]
 
 # read in the hunte data that is going to be used for merging, clean up a column for merging
-df2 = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\original_datasets\hunter\hunter_data.csv')
+df2 = pd.read_csv(r'PATH\TO\THIS\FILE\hunter_data.csv')
 new = df2['ID'].str.split('_', expand = True)
 new['name'] = new[0] + '_' + new[1]
 
