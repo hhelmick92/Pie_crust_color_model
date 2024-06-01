@@ -30,8 +30,8 @@ from grid_funcs import forest_searching_val
 
 # In[]
 
-all_train = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\data2\train_data.csv')
-all_val = pd.read_csv(r'L:\Kokini Lab\Kara Benbow\project_main\data2\val.csv')
+all_train = pd.read_csv(r'PATH\TO\THIS\FILE\train_data.csv')
+all_val = pd.read_csv(r'PATH\TO\THIS\FILE\val.csv')
 
 light_train = all_train.loc[all_train['lighting'] == 'high']
 dark_train = all_train.loc[all_train['lighting'] == 'low']
@@ -147,15 +147,11 @@ all_results_ann.index = idx
 all_results_ann['DATA'] = 'ALL DATA'
 all_results_ann['TYPE'] = 'ANN'
 
-#all_results_ann.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\model_results2\ann_all_grid.csv')
-
 light_results_ann  = pd.DataFrame(light_grid_ann)
 light_results_ann.columns = cols
 light_results_ann.index = idx
 light_results_ann['DATA'] = 'LIGHT DATA'
 light_results_ann['TYPE'] = 'ANN'
-
-#light_results_ann.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\model_results2\ann_light_grid.csv')
 
 dark_results_ann  = pd.DataFrame(dark_grid_ann)
 dark_results_ann.columns = cols
@@ -163,18 +159,11 @@ dark_results_ann.index = idx
 dark_results_ann['DATA'] = 'DARK DATA'
 dark_results_ann['TYPE'] = 'ANN'
 
-#dark_results_ann.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\model_results2\ann_dark_grid.csv')
-
-
 out = pd.concat([all_results, light_results, dark_results,
                  all_results_ann, light_results_ann, dark_results_ann
                  ])
-'''
-out = pd.concat([all_results, light_results, dark_results,
-                 ])
-'''
 
-out.to_csv(r'L:\Kokini Lab\Kara Benbow\project_main\model_results2\rf_grid_search.csv')
+out.to_csv(r'PATH\TO\THIS\FILE\rf_grid_search.csv')
 
 # In[]
 
